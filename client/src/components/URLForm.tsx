@@ -87,7 +87,7 @@ export default function URLForm({
                 id="website-url"
                 name="website-url"
                 placeholder="https://example.com"
-                className="w-full px-4 py-3 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md"
+                className="w-full px-4 py-3 h-12 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 shadow-sm hover:shadow-md"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 required
@@ -101,10 +101,10 @@ export default function URLForm({
               Введите URL сайта для анализа его SEO метатегов и получения рекомендаций
             </p>
           </div>
-          <div className="flex items-end">
+          <div className="md:self-end mb-0.5">
             <button
               type="submit"
-              className="w-full md:w-auto btn px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 shadow-md"
+              className="w-full md:w-auto h-12 btn px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 shadow-md"
               disabled={isLoading}
             >
               {isLoading ? (
