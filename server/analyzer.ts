@@ -235,22 +235,22 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     
     // Analyze OG image
     let ogImageStatus: MetaTagStatus = "success";
-    let ogImageDesc = "Open Graph image is well-defined.";
+    let ogImageDesc = "Изображение Open Graph хорошо определено.";
     
     if (!ogImage) {
       ogImageStatus = "error";
-      ogImageDesc = "Open Graph image is missing. This is critical for social media sharing.";
+      ogImageDesc = "Изображение Open Graph отсутствует. Это критично для отображения в социальных сетях.";
       errors++;
     } else if (!ogImage.startsWith("http")) {
       ogImageStatus = "error";
-      ogImageDesc = "Open Graph image URL should be absolute, not relative.";
+      ogImageDesc = "URL изображения Open Graph должен быть абсолютным, а не относительным.";
       errors++;
     } else {
       success++;
     }
     
     metaTags.push({
-      name: "Open Graph Image",
+      name: "Изображение Open Graph",
       value: ogImage ? `<meta property="og:image" content="${ogImage}" />` : undefined,
       status: ogImageStatus,
       description: ogImageDesc
@@ -272,22 +272,22 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     
     // Analyze Twitter card
     let twitterCardStatus: MetaTagStatus = "success";
-    let twitterCardDesc = "Twitter card is well-defined.";
+    let twitterCardDesc = "Карточка Twitter хорошо определена.";
     
     if (!twitterCard) {
       twitterCardStatus = "warning";
-      twitterCardDesc = "Twitter card type is missing. Twitter will use a default compact card.";
+      twitterCardDesc = "Тип карточки Twitter отсутствует. Twitter будет использовать карточку по умолчанию.";
       warnings++;
     } else if (!["summary", "summary_large_image", "app", "player"].includes(twitterCard)) {
       twitterCardStatus = "warning";
-      twitterCardDesc = `Unknown Twitter card type: "${twitterCard}". Valid types are: summary, summary_large_image, app, player.`;
+      twitterCardDesc = `Неизвестный тип карточки Twitter: "${twitterCard}". Допустимые типы: summary, summary_large_image, app, player.`;
       warnings++;
     } else {
       success++;
     }
     
     metaTags.push({
-      name: "Twitter Card",
+      name: "Карточка Twitter",
       value: twitterCard ? `<meta name="twitter:card" content="${twitterCard}" />` : undefined,
       status: twitterCardStatus,
       description: twitterCardDesc
@@ -295,11 +295,11 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     
     // Analyze Twitter image
     let twitterImageStatus: MetaTagStatus = "success";
-    let twitterImageDesc = "Twitter image is well-defined.";
+    let twitterImageDesc = "Изображение Twitter хорошо определено.";
     
     if (!twitterImage) {
       twitterImageStatus = "warning";
-      twitterImageDesc = "Twitter image is missing. Twitter will try to use the Open Graph image instead.";
+      twitterImageDesc = "Изображение Twitter отсутствует. Twitter попытается использовать изображение Open Graph вместо него.";
       
       // Only count as a warning if no OG image either
       if (!ogImage) {
@@ -307,14 +307,14 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
       }
     } else if (!twitterImage.startsWith("http")) {
       twitterImageStatus = "error";
-      twitterImageDesc = "Twitter image URL should be absolute, not relative.";
+      twitterImageDesc = "URL изображения Twitter должен быть абсолютным, а не относительным.";
       errors++;
     } else {
       success++;
     }
     
     metaTags.push({
-      name: "Twitter Image",
+      name: "Изображение Twitter",
       value: twitterImage ? `<meta name="twitter:image" content="${twitterImage}" />` : undefined,
       status: twitterImageStatus,
       description: twitterImageDesc
@@ -327,16 +327,16 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     if (titleStatus === "error") {
       recommendations.push({
         type: "error" as MetaTagStatus,
-        title: "Add a title tag",
-        description: "Every page should have a unique, descriptive title tag. This is critical for SEO.",
-        example: "<title>Your Primary Keyword | Your Brand Name</title>"
+        title: "Добавьте тег заголовка",
+        description: "Каждая страница должна иметь уникальный и описательный тег заголовка. Это критически важно для SEO.",
+        example: "<title>Ваше основное ключевое слово | Название бренда</title>"
       });
     } else if (titleStatus === "warning") {
       recommendations.push({
         type: "warning" as MetaTagStatus,
-        title: "Optimize your title tag",
-        description: `Your title ${titleLength > MAX_LENGTHS.title ? "exceeds" : "is under"} the recommended length. Aim for 50-60 characters.`,
-        example: "<title>Concise, Keyword-Rich Title | Brand Name</title>"
+        title: "Оптимизируйте тег заголовка",
+        description: `Ваш заголовок ${titleLength > MAX_LENGTHS.title ? "превышает" : "меньше"} рекомендуемой длины. Стремитесь к 50-60 символам.`,
+        example: "<title>Краткий и информативный заголовок | Название бренда</title>"
       });
     }
     
@@ -344,16 +344,16 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     if (descriptionStatus === "error") {
       recommendations.push({
         type: "error" as MetaTagStatus,
-        title: "Add a meta description",
-        description: "Meta descriptions provide a summary of your page's content and appear in search results.",
-        example: '<meta name="description" content="A compelling 150-160 character description that includes your main keywords and encourages clicks." />'
+        title: "Добавьте мета-описание",
+        description: "Мета-описания предоставляют резюме содержимого вашей страницы и отображаются в результатах поиска.",
+        example: '<meta name="description" content="Привлекательное описание на 150-160 символов, которое включает основные ключевые слова и стимулирует клики." />'
       });
     } else if (descriptionStatus === "warning") {
       recommendations.push({
         type: "warning" as MetaTagStatus,
-        title: "Improve your meta description",
-        description: `Your description ${descriptionLength > MAX_LENGTHS.description ? "exceeds" : "is under"} the ideal length. Aim for 150-160 characters with relevant keywords.`,
-        example: '<meta name="description" content="A clear, concise summary of your page that includes primary keywords and a call to action within 150-160 characters." />'
+        title: "Улучшите мета-описание",
+        description: `Ваше описание ${descriptionLength > MAX_LENGTHS.description ? "превышает" : "меньше"} идеальной длины. Стремитесь к 150-160 символам с релевантными ключевыми словами.`,
+        example: '<meta name="description" content="Четкое и краткое описание страницы, включающее основные ключевые слова и призыв к действию, в пределах 150-160 символов." />'
       });
     }
     
@@ -361,8 +361,8 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     if (ogImageStatus === "error") {
       recommendations.push({
         type: "error" as MetaTagStatus,
-        title: "Add Open Graph image",
-        description: "An Open Graph image is essential for attractive social media sharing. Use a high-quality image of at least 1200x630 pixels.",
+        title: "Добавьте изображение Open Graph",
+        description: "Изображение Open Graph необходимо для привлекательного отображения при публикации в социальных сетях. Используйте качественное изображение размером не менее 1200x630 пикселей.",
         example: '<meta property="og:image" content="https://example.com/images/og-image.jpg" />\n<meta property="og:image:width" content="1200" />\n<meta property="og:image:height" content="630" />'
       });
     }
@@ -371,8 +371,8 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     if (twitterCardStatus === "warning") {
       recommendations.push({
         type: "warning" as MetaTagStatus,
-        title: "Add Twitter Card meta tags",
-        description: "Twitter Cards make your content more visually appealing when shared on Twitter.",
+        title: "Добавьте мета-теги Twitter Card",
+        description: "Карточки Twitter делают ваш контент более привлекательным при публикации в Twitter.",
         example: '<meta name="twitter:card" content="summary_large_image" />\n<meta name="twitter:site" content="@yourusername" />'
       });
     }
