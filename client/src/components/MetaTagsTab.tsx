@@ -10,9 +10,9 @@ export default function MetaTagsTab({ metaTags }: MetaTagsTabProps) {
     <div id="meta-tags-tab" className="tab-panel">
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md overflow-hidden">
         <div className="p-4 bg-gray-50 dark:bg-gray-700 border-b border-gray-200 dark:border-gray-600">
-          <h3 className="font-semibold text-gray-800 dark:text-gray-100">Detected Meta Tags</h3>
+          <h3 className="font-semibold text-gray-800 dark:text-gray-100">Обнаруженные мета-теги</h3>
           <p className="text-sm text-gray-600 dark:text-gray-300">
-            Найдено и проанализировано {metaTags.length} мета тегов
+            Найдено и проанализировано {metaTags.length} мета-тегов
           </p>
         </div>
         

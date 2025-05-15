@@ -39,19 +39,19 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     const title = $("title").text().trim();
     const titleLength = title.length;
     let titleStatus: MetaTagStatus = "success";
-    let titleDescription = "Good title length with relevant keywords.";
+    let titleDescription = "Хорошая длина заголовка с релевантными ключевыми словами.";
     
     if (!title) {
       titleStatus = "error";
-      titleDescription = "Title tag is missing.";
+      titleDescription = "Тег title отсутствует.";
       errors++;
     } else if (titleLength > MAX_LENGTHS.title) {
       titleStatus = "warning";
-      titleDescription = `Title is too long (${titleLength} chars). Recommended max length is ${MAX_LENGTHS.title} characters.`;
+      titleDescription = `Заголовок слишком длинный (${titleLength} символов). Рекомендуемая максимальная длина: ${MAX_LENGTHS.title} символов.`;
       warnings++;
     } else if (titleLength < 10) {
       titleStatus = "warning";
-      titleDescription = `Title is too short (${titleLength} chars). Recommended min length is 10 characters.`;
+      titleDescription = `Заголовок слишком короткий (${titleLength} символов). Рекомендуемая минимальная длина: 10 символов.`;
       warnings++;
     } else {
       success++;
@@ -70,19 +70,19 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     const description = $('meta[name="description"]').attr("content") || "";
     const descriptionLength = description.length;
     let descriptionStatus: MetaTagStatus = "success";
-    let descriptionDesc = "Good description length with relevant information.";
+    let descriptionDesc = "Хорошая длина описания с релевантной информацией.";
     
     if (!description) {
       descriptionStatus = "error";
-      descriptionDesc = "Meta description is missing.";
+      descriptionDesc = "Мета-тег description отсутствует.";
       errors++;
     } else if (descriptionLength > MAX_LENGTHS.description) {
       descriptionStatus = "warning";
-      descriptionDesc = `Description is too long (${descriptionLength} chars). Recommended max length is ${MAX_LENGTHS.description} characters.`;
+      descriptionDesc = `Описание слишком длинное (${descriptionLength} символов). Рекомендуемая максимальная длина: ${MAX_LENGTHS.description} символов.`;
       warnings++;
     } else if (descriptionLength < 50) {
       descriptionStatus = "warning";
-      descriptionDesc = `Description is too short (${descriptionLength} chars). Recommended min length is 50 characters.`;
+      descriptionDesc = `Описание слишком короткое (${descriptionLength} символов). Рекомендуемая минимальная длина: 50 символов.`;
       warnings++;
     } else {
       success++;
@@ -100,15 +100,15 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     // Extract canonical URL
     const canonical = $('link[rel="canonical"]').attr("href") || "";
     let canonicalStatus: MetaTagStatus = "success";
-    let canonicalDesc = "Canonical URL is properly defined.";
+    let canonicalDesc = "Канонический URL правильно определен.";
     
     if (!canonical) {
       canonicalStatus = "warning";
-      canonicalDesc = "Canonical URL is missing.";
+      canonicalDesc = "Канонический URL отсутствует.";
       warnings++;
     } else if (!canonical.startsWith("http")) {
       canonicalStatus = "error";
-      canonicalDesc = "Canonical URL is invalid. It should be an absolute URL.";
+      canonicalDesc = "Канонический URL недействителен. Должен быть абсолютным URL.";
       errors++;
     } else {
       success++;
@@ -124,15 +124,15 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     // Extract viewport
     const viewport = $('meta[name="viewport"]').attr("content") || "";
     let viewportStatus: MetaTagStatus = "success";
-    let viewportDesc = "Viewport is properly configured for mobile devices.";
+    let viewportDesc = "Viewport правильно настроен для мобильных устройств.";
     
     if (!viewport) {
       viewportStatus = "error";
-      viewportDesc = "Viewport meta tag is missing. This affects mobile responsiveness.";
+      viewportDesc = "Мета-тег viewport отсутствует. Это влияет на отображение на мобильных устройствах.";
       errors++;
     } else if (!viewport.includes("width=device-width")) {
       viewportStatus = "warning";
-      viewportDesc = "Viewport meta tag should include 'width=device-width' for proper responsiveness.";
+      viewportDesc = "Мета-тег viewport должен включать 'width=device-width' для корректной адаптивности.";
       warnings++;
     } else {
       success++;
@@ -148,15 +148,15 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     // Extract robots
     const robots = $('meta[name="robots"]').attr("content") || "";
     let robotsStatus: MetaTagStatus = "success";
-    let robotsDesc = "Robots meta tag is properly configured.";
+    let robotsDesc = "Мета-тег robots правильно настроен.";
     
     if (!robots) {
       robotsStatus = "warning";
-      robotsDesc = "Robots meta tag is missing. This may affect how search engines index your content.";
+      robotsDesc = "Мета-тег robots отсутствует. Это может повлиять на индексацию страницы поисковыми системами.";
       warnings++;
     } else if (robots.includes("noindex")) {
       robotsStatus = "warning";
-      robotsDesc = "Page is set to 'noindex', which prevents it from appearing in search results.";
+      robotsDesc = "Страница помечена как 'noindex', что предотвращает ее появление в результатах поиска.";
       warnings++;
     } else {
       success++;
@@ -185,15 +185,15 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     
     // Analyze OG title
     let ogTitleStatus: MetaTagStatus = "success";
-    let ogTitleDesc = "Open Graph title is well-defined.";
+    let ogTitleDesc = "Open Graph заголовок хорошо определен.";
     
     if (!ogTitle) {
       ogTitleStatus = "warning";
-      ogTitleDesc = "Open Graph title is missing. Social media platforms may use the page title instead.";
+      ogTitleDesc = "Open Graph заголовок отсутствует. Социальные сети могут использовать тег title вместо него.";
       warnings++;
     } else if (ogTitle.length > MAX_LENGTHS.ogTitle) {
       ogTitleStatus = "warning";
-      ogTitleDesc = `Open Graph title is too long (${ogTitle.length} chars). Recommended max length is ${MAX_LENGTHS.ogTitle} characters.`;
+      ogTitleDesc = `Open Graph заголовок слишком длинный (${ogTitle.length} символов). Рекомендуемая максимальная длина: ${MAX_LENGTHS.ogTitle} символов.`;
       warnings++;
     } else {
       success++;

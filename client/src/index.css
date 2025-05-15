@@ -121,6 +121,10 @@
   .preview-card {
     @apply transition-shadow duration-200 hover:shadow-md;
   }
+  
+  .border-l-3 {
+    border-left-width: 3px;
+  }
 }
 
 /* Utility classes for colors */
