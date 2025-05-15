@@ -108,15 +108,15 @@ export default function URLForm({
               disabled={isLoading}
             >
               {isLoading ? (
-                <span className="flex items-center justify-center">
-                  <span className="material-icons animate-spin text-sm mr-2">autorenew</span>
-                  Анализ...
-                </span>
+                <div className="inline-flex items-center space-x-2">
+                  <span className="material-icons animate-spin text-sm">autorenew</span>
+                  <span>Анализ...</span>
+                </div>
               ) : (
-                <span className="flex items-center justify-center gap-2">
-                  <span className="material-icons">analytics</span>
+                <div className="inline-flex items-center space-x-2">
+                  <span className="material-icons text-[20px]">analytics</span>
                   <span>Анализировать</span>
-                </span>
+                </div>
               )}
             </button>
           </div>
