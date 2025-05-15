@@ -101,10 +101,10 @@ export default function URLForm({
               Введите URL сайта для анализа его SEO метатегов и получения рекомендаций
             </p>
           </div>
-          <div className="md:self-end mb-0.5">
+          <div className="md:self-end mb-0.5 pb-4">
             <button
               type="submit"
-              className="w-full md:w-auto h-[48px] px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 shadow-md"
+              className="w-full h-[50px] px-6 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-medium rounded-md hover:from-blue-700 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 shadow-md"
               disabled={isLoading}
             >
               {isLoading ? (

@@ -109,7 +109,7 @@ export default function RecommendationsTab({ recommendations }: RecommendationsT
                           <i className="material-icons text-blue-500 dark:text-blue-400 text-sm mr-1">code</i>
                           <span className="text-sm font-medium text-gray-600 dark:text-gray-400">Пример реализации:</span>
                         </div>
-                        <pre className="text-sm text-gray-800 dark:text-gray-200 mt-1 bg-gray-50 dark:bg-gray-700 p-3 rounded-lg border border-gray-200 dark:border-gray-600 overflow-x-auto">
+                        <pre className="text-sm text-gray-800 dark:text-gray-200 mt-1 bg-gray-50 dark:bg-gray-700 p-3 rounded-lg border border-gray-200 dark:border-gray-600 overflow-x-auto whitespace-pre-wrap break-words max-w-full">
                           {rec.example}
                         </pre>
                       </div>
