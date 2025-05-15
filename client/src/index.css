@@ -83,8 +83,12 @@
     @apply border-border;
   }
 
+  html, body {
+    min-height: 100vh;
+  }
+
   body {
-    @apply font-sans antialiased bg-gray-50 text-foreground;
+    @apply font-sans antialiased bg-gray-50 dark:bg-gray-900 text-foreground;
   }
 }
 
@@ -213,6 +217,105 @@
 }
 .text-blue-600 {
   color: #2563eb;
+}
+
+/* Amber/золотистый цвет для рекомендаций */
+.bg-amber-100 {
+  background-color: #fef3c7;
+}
+
+.bg-amber-500 {
+  background-color: #f59e0b;
+}
+
+.bg-amber-900\/40 {
+  background-color: rgba(120, 53, 15, 0.4);
+}
+
+.text-amber-300 {
+  color: #fcd34d;
+}
+
+.text-amber-400 {
+  color: #fbbf24;
+}
+
+.text-amber-600 {
+  color: #d97706;
+}
+
+.text-amber-700 {
+  color: #b45309;
+}
+
+.border-amber-500 {
+  border-color: #f59e0b;
+}
+
+/* Green цвет для вкладки Google Preview */
+.bg-green-100 {
+  background-color: #dcfce7;
+}
+
+.bg-green-500 {
+  background-color: #22c55e;
+}
+
+.bg-green-900\/40 {
+  background-color: rgba(20, 83, 45, 0.4);
+}
+
+.text-green-300 {
+  color: #86efac;
+}
+
+.text-green-400 {
+  color: #4ade80;
+}
+
+.text-green-600 {
+  color: #16a34a;
+}
+
+.text-green-700 {
+  color: #15803d;
+}
+
+.border-green-500 {
+  border-color: #22c55e;
+}
+
+/* Purple цвет для вкладки Social preview */
+.bg-purple-100 {
+  background-color: #f3e8ff;
+}
+
+.bg-purple-500 {
+  background-color: #a855f7;
+}
+
+.bg-purple-900\/40 {
+  background-color: rgba(88, 28, 135, 0.4);
+}
+
+.text-purple-300 {
+  color: #d8b4fe;
+}
+
+.text-purple-400 {
+  color: #c084fc;
+}
+
+.text-purple-600 {
+  color: #9333ea;
+}
+
+.text-purple-700 {
+  color: #7e22ce;
+}
+
+.border-purple-500 {
+  border-color: #a855f7;
 }
 
 /* Анимации */
