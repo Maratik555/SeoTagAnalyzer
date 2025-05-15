@@ -58,7 +58,7 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     }
     
     metaTags.push({
-      name: "Title",
+      name: "Заголовок (Title)",
       value: title ? `<title>${title}</title>` : undefined,
       status: titleStatus,
       description: titleDescription,
@@ -89,7 +89,7 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     }
     
     metaTags.push({
-      name: "Description",
+      name: "Описание (Description)",
       value: description ? `<meta name="description" content="${description}" />` : undefined,
       status: descriptionStatus,
       description: descriptionDesc,
@@ -115,7 +115,7 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     }
     
     metaTags.push({
-      name: "Canonical URL",
+      name: "Канонический URL",
       value: canonical ? `<link rel="canonical" href="${canonical}" />` : undefined,
       status: canonicalStatus,
       description: canonicalDesc
@@ -139,7 +139,7 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     }
     
     metaTags.push({
-      name: "Viewport",
+      name: "Мобильный вид (Viewport)",
       value: viewport ? `<meta name="viewport" content="${viewport}" />` : undefined,
       status: viewportStatus,
       description: viewportDesc
@@ -163,7 +163,7 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     }
     
     metaTags.push({
-      name: "Robots",
+      name: "Индексация (Robots)",
       value: robots ? `<meta name="robots" content="${robots}" />` : undefined,
       status: robotsStatus,
       description: robotsDesc
@@ -200,7 +200,7 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     }
     
     metaTags.push({
-      name: "Open Graph Title",
+      name: "Заголовок Open Graph",
       value: ogTitle ? `<meta property="og:title" content="${ogTitle}" />` : undefined,
       status: ogTitleStatus,
       description: ogTitleDesc,
@@ -210,22 +210,22 @@ export async function analyzeSeoMetaTags(url: string): Promise<SeoAnalysisRespon
     
     // Analyze OG description
     let ogDescStatus: MetaTagStatus = "success";
-    let ogDescDesc = "Open Graph description is well-defined.";
+    let ogDescDesc = "Описание Open Graph хорошо определено.";
     
     if (!ogDescription) {
       ogDescStatus = "warning";
-      ogDescDesc = "Open Graph description is missing. Social media platforms may use the meta description instead.";
+      ogDescDesc = "Описание Open Graph отсутствует. Социальные сети могут использовать мета-описание вместо него.";
       warnings++;
     } else if (ogDescription.length > MAX_LENGTHS.ogDescription) {
       ogDescStatus = "warning";
-      ogDescDesc = `Open Graph description is too long (${ogDescription.length} chars). Recommended max length is ${MAX_LENGTHS.ogDescription} characters.`;
+      ogDescDesc = `Описание Open Graph слишком длинное (${ogDescription.length} символов). Рекомендуемая максимальная длина: ${MAX_LENGTHS.ogDescription} символов.`;
       warnings++;
     } else {
       success++;
     }
     
     metaTags.push({
-      name: "Open Graph Description",
+      name: "Описание Open Graph",
       value: ogDescription ? `<meta property="og:description" content="${ogDescription}" />` : undefined,
       status: ogDescStatus,
       description: ogDescDesc,
