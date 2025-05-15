@@ -113,9 +113,9 @@ export default function URLForm({
                   Анализ...
                 </span>
               ) : (
-                <span className="flex items-center justify-center">
-                  <span className="material-icons mr-1">analytics</span>
-                  Анализировать
+                <span className="flex items-center justify-center gap-2">
+                  <span className="material-icons">analytics</span>
+                  <span>Анализировать</span>
                 </span>
               )}
             </button>
