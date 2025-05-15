@@ -73,10 +73,10 @@ export default function URLForm({
   };
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-6 mb-8">
+    <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
       <form className="flex flex-col sm:flex-row gap-4" onSubmit={handleSubmit}>
         <div className="flex-grow">
-          <label htmlFor="website-url" className="block text-sm font-medium text-gray-700 mb-1">
+          <label htmlFor="website-url" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
             URL сайта
           </label>
           <input
@@ -84,7 +84,7 @@ export default function URLForm({
             id="website-url"
             name="website-url"
             placeholder="https://example.com"
-            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+            className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors"
             value={url}
             onChange={(e) => setUrl(e.target.value)}
             required
